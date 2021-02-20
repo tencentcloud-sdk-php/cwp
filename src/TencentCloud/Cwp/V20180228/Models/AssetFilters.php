@@ -18,23 +18,20 @@ namespace TencentCloud\Cwp\V20180228\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 描述键值对过滤器，用于条件过滤查询。例如过滤ID、名称、状态等
-
+ * 容器安全
+描述键值对过滤器，用于条件过滤查询。例如过滤ID、名称、状态等
 若存在多个Filter时，Filter间的关系为逻辑与（AND）关系。
 若同一个Filter存在多个Values，同一Filter下Values间的关系为逻辑或（OR）关系。
-
-* 最多只能有5个Filter
-* 同一个Filter存在多个Values，Values值数量最多不能超过5个。
 
  *
  * @method string getName() 获取过滤键的名称。
  * @method void setName(string $Name) 设置过滤键的名称。
  * @method array getValues() 获取一个或者多个过滤值。
  * @method void setValues(array $Values) 设置一个或者多个过滤值。
- * @method boolean getExactMatch() 获取模糊搜索
- * @method void setExactMatch(boolean $ExactMatch) 设置模糊搜索
+ * @method boolean getExactMatch() 获取是否模糊查询
+ * @method void setExactMatch(boolean $ExactMatch) 设置是否模糊查询
  */
-class Filter extends AbstractModel
+class AssetFilters extends AbstractModel
 {
     /**
      * @var string 过滤键的名称。
@@ -47,14 +44,14 @@ class Filter extends AbstractModel
     public $Values;
 
     /**
-     * @var boolean 模糊搜索
+     * @var boolean 是否模糊查询
      */
     public $ExactMatch;
 
     /**
      * @param string $Name 过滤键的名称。
      * @param array $Values 一个或者多个过滤值。
-     * @param boolean $ExactMatch 模糊搜索
+     * @param boolean $ExactMatch 是否模糊查询
      */
     function __construct()
     {
