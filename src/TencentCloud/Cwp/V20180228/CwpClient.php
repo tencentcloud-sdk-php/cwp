@@ -52,6 +52,7 @@ use TencentCloud\Cwp\V20180228\Models as Models;
  * @method Models\DescribeAlarmAttributeResponse DescribeAlarmAttribute(Models\DescribeAlarmAttributeRequest $req) 本接口 (DescribeAlarmAttribute) 用于获取告警设置。
  * @method Models\DescribeAttackLogInfoResponse DescribeAttackLogInfo(Models\DescribeAttackLogInfoRequest $req) 网络攻击日志详情
  * @method Models\DescribeAttackLogsResponse DescribeAttackLogs(Models\DescribeAttackLogsRequest $req) 按分页形式展示网络攻击日志列表
+ * @method Models\DescribeAttackVulTypeListResponse DescribeAttackVulTypeList(Models\DescribeAttackVulTypeListRequest $req) 获取网络攻击威胁类型列表
  * @method Models\DescribeBashEventsResponse DescribeBashEvents(Models\DescribeBashEventsRequest $req) 获取高危命令列表
  * @method Models\DescribeBashRulesResponse DescribeBashRules(Models\DescribeBashRulesRequest $req) 获取高危命令规则列表
  * @method Models\DescribeBruteAttacksResponse DescribeBruteAttacks(Models\DescribeBruteAttacksRequest $req) 本接口{DescribeBruteAttacks}用于获取暴力破解事件列表。
