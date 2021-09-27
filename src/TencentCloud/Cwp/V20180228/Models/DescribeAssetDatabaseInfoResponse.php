@@ -18,26 +18,19 @@ namespace TencentCloud\Cwp\V20180228\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeVersionStatistics返回参数结构体
+ * DescribeAssetDatabaseInfo返回参数结构体
  *
- * @method integer getBasicVersionNum() 获取基础版数量
- * @method void setBasicVersionNum(integer $BasicVersionNum) 设置基础版数量
- * @method integer getProVersionNum() 获取专业版数量
- * @method void setProVersionNum(integer $ProVersionNum) 设置专业版数量
+ * @method AssetDatabaseDetail getDatabase() 获取数据库详情
+ * @method void setDatabase(AssetDatabaseDetail $Database) 设置数据库详情
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeVersionStatisticsResponse extends AbstractModel
+class DescribeAssetDatabaseInfoResponse extends AbstractModel
 {
     /**
-     * @var integer 基础版数量
+     * @var AssetDatabaseDetail 数据库详情
      */
-    public $BasicVersionNum;
-
-    /**
-     * @var integer 专业版数量
-     */
-    public $ProVersionNum;
+    public $Database;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +38,7 @@ class DescribeVersionStatisticsResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $BasicVersionNum 基础版数量
-     * @param integer $ProVersionNum 专业版数量
+     * @param AssetDatabaseDetail $Database 数据库详情
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,12 +54,9 @@ class DescribeVersionStatisticsResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("BasicVersionNum",$param) and $param["BasicVersionNum"] !== null) {
-            $this->BasicVersionNum = $param["BasicVersionNum"];
-        }
-
-        if (array_key_exists("ProVersionNum",$param) and $param["ProVersionNum"] !== null) {
-            $this->ProVersionNum = $param["ProVersionNum"];
+        if (array_key_exists("Database",$param) and $param["Database"] !== null) {
+            $this->Database = new AssetDatabaseDetail();
+            $this->Database->deserialize($param["Database"]);
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
