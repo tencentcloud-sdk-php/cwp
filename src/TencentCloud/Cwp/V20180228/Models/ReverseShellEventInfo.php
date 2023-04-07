@@ -18,7 +18,7 @@ namespace TencentCloud\Cwp\V20180228\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 反弹Shell数据
+ * 反弹Shell数据详情
  *
  * @method integer getId() 获取ID 主键
  * @method void setId(integer $Id) 设置ID 主键
@@ -26,8 +26,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setUuid(string $Uuid) 设置云镜UUID
  * @method string getQuuid() 获取主机ID
  * @method void setQuuid(string $Quuid) 设置主机ID
- * @method string getHostip() 获取主机内网IP
- * @method void setHostip(string $Hostip) 设置主机内网IP
+ * @method string getHostIp() 获取主机内网IP
+ * @method void setHostIp(string $HostIp) 设置主机内网IP
  * @method string getDstIp() 获取目标IP
  * @method void setDstIp(string $DstIp) 设置目标IP
  * @method integer getDstPort() 获取目标端口
@@ -56,20 +56,28 @@ use TencentCloud\Common\AbstractModel;
  * @method void setCreateTime(string $CreateTime) 设置产生时间
  * @method string getMachineName() 获取主机名
  * @method void setMachineName(string $MachineName) 设置主机名
- * @method string getProcTree() 获取进程树
- * @method void setProcTree(string $ProcTree) 设置进程树
  * @method integer getDetectBy() 获取检测方法
  * @method void setDetectBy(integer $DetectBy) 设置检测方法
- * @method MachineExtraInfo getMachineExtraInfo() 获取 主机额外信息
+ * @method string getPsTree() 获取进程树 json  pid:进程id，exe:文件路径 ，account:进程所属用组和用户 ,cmdline:执行命令，ssh_service: SSH服务ip, ssh_soure:登录源
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setMachineExtraInfo(MachineExtraInfo $MachineExtraInfo) 设置 主机额外信息
+ * @method void setPsTree(string $PsTree) 设置进程树 json  pid:进程id，exe:文件路径 ，account:进程所属用组和用户 ,cmdline:执行命令，ssh_service: SSH服务ip, ssh_soure:登录源
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getPid() 获取进程id
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setPid(integer $Pid) 设置进程id
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getSuggestScheme() 获取建议方案
+ * @method void setSuggestScheme(string $SuggestScheme) 设置建议方案
+ * @method string getHarmDescribe() 获取描述
+ * @method void setHarmDescribe(string $HarmDescribe) 设置描述
+ * @method array getTags() 获取标签
+ * @method void setTags(array $Tags) 设置标签
+ * @method array getReferences() 获取参考链接
+ * @method void setReferences(array $References) 设置参考链接
+ * @method string getMachineWanIp() 获取主机外网ip
+ * @method void setMachineWanIp(string $MachineWanIp) 设置主机外网ip
+ * @method string getMachineStatus() 获取主机在线状态 OFFLINE  ONLINE
+ * @method void setMachineStatus(string $MachineStatus) 设置主机在线状态 OFFLINE  ONLINE
+ * @method string getModifyTime() 获取处理时间
+ * @method void setModifyTime(string $ModifyTime) 设置处理时间
  */
-class ReverseShell extends AbstractModel
+class ReverseShellEventInfo extends AbstractModel
 {
     /**
      * @var integer ID 主键
@@ -89,7 +97,7 @@ class ReverseShell extends AbstractModel
     /**
      * @var string 主机内网IP
      */
-    public $Hostip;
+    public $HostIp;
 
     /**
      * @var string 目标IP
@@ -162,32 +170,56 @@ class ReverseShell extends AbstractModel
     public $MachineName;
 
     /**
-     * @var string 进程树
-     */
-    public $ProcTree;
-
-    /**
      * @var integer 检测方法
      */
     public $DetectBy;
 
     /**
-     * @var MachineExtraInfo  主机额外信息
+     * @var string 进程树 json  pid:进程id，exe:文件路径 ，account:进程所属用组和用户 ,cmdline:执行命令，ssh_service: SSH服务ip, ssh_soure:登录源
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $MachineExtraInfo;
+    public $PsTree;
 
     /**
-     * @var integer 进程id
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 建议方案
      */
-    public $Pid;
+    public $SuggestScheme;
+
+    /**
+     * @var string 描述
+     */
+    public $HarmDescribe;
+
+    /**
+     * @var array 标签
+     */
+    public $Tags;
+
+    /**
+     * @var array 参考链接
+     */
+    public $References;
+
+    /**
+     * @var string 主机外网ip
+     */
+    public $MachineWanIp;
+
+    /**
+     * @var string 主机在线状态 OFFLINE  ONLINE
+     */
+    public $MachineStatus;
+
+    /**
+     * @var string 处理时间
+     */
+    public $ModifyTime;
 
     /**
      * @param integer $Id ID 主键
      * @param string $Uuid 云镜UUID
      * @param string $Quuid 主机ID
-     * @param string $Hostip 主机内网IP
+     * @param string $HostIp 主机内网IP
      * @param string $DstIp 目标IP
      * @param integer $DstPort 目标端口
      * @param string $ProcessName 进程名
@@ -202,12 +234,16 @@ class ReverseShell extends AbstractModel
      * @param integer $Status 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略
      * @param string $CreateTime 产生时间
      * @param string $MachineName 主机名
-     * @param string $ProcTree 进程树
      * @param integer $DetectBy 检测方法
-     * @param MachineExtraInfo $MachineExtraInfo  主机额外信息
+     * @param string $PsTree 进程树 json  pid:进程id，exe:文件路径 ，account:进程所属用组和用户 ,cmdline:执行命令，ssh_service: SSH服务ip, ssh_soure:登录源
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $Pid 进程id
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $SuggestScheme 建议方案
+     * @param string $HarmDescribe 描述
+     * @param array $Tags 标签
+     * @param array $References 参考链接
+     * @param string $MachineWanIp 主机外网ip
+     * @param string $MachineStatus 主机在线状态 OFFLINE  ONLINE
+     * @param string $ModifyTime 处理时间
      */
     function __construct()
     {
@@ -234,8 +270,8 @@ class ReverseShell extends AbstractModel
             $this->Quuid = $param["Quuid"];
         }
 
-        if (array_key_exists("Hostip",$param) and $param["Hostip"] !== null) {
-            $this->Hostip = $param["Hostip"];
+        if (array_key_exists("HostIp",$param) and $param["HostIp"] !== null) {
+            $this->HostIp = $param["HostIp"];
         }
 
         if (array_key_exists("DstIp",$param) and $param["DstIp"] !== null) {
@@ -294,21 +330,40 @@ class ReverseShell extends AbstractModel
             $this->MachineName = $param["MachineName"];
         }
 
-        if (array_key_exists("ProcTree",$param) and $param["ProcTree"] !== null) {
-            $this->ProcTree = $param["ProcTree"];
-        }
-
         if (array_key_exists("DetectBy",$param) and $param["DetectBy"] !== null) {
             $this->DetectBy = $param["DetectBy"];
         }
 
-        if (array_key_exists("MachineExtraInfo",$param) and $param["MachineExtraInfo"] !== null) {
-            $this->MachineExtraInfo = new MachineExtraInfo();
-            $this->MachineExtraInfo->deserialize($param["MachineExtraInfo"]);
+        if (array_key_exists("PsTree",$param) and $param["PsTree"] !== null) {
+            $this->PsTree = $param["PsTree"];
         }
 
-        if (array_key_exists("Pid",$param) and $param["Pid"] !== null) {
-            $this->Pid = $param["Pid"];
+        if (array_key_exists("SuggestScheme",$param) and $param["SuggestScheme"] !== null) {
+            $this->SuggestScheme = $param["SuggestScheme"];
+        }
+
+        if (array_key_exists("HarmDescribe",$param) and $param["HarmDescribe"] !== null) {
+            $this->HarmDescribe = $param["HarmDescribe"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = $param["Tags"];
+        }
+
+        if (array_key_exists("References",$param) and $param["References"] !== null) {
+            $this->References = $param["References"];
+        }
+
+        if (array_key_exists("MachineWanIp",$param) and $param["MachineWanIp"] !== null) {
+            $this->MachineWanIp = $param["MachineWanIp"];
+        }
+
+        if (array_key_exists("MachineStatus",$param) and $param["MachineStatus"] !== null) {
+            $this->MachineStatus = $param["MachineStatus"];
+        }
+
+        if (array_key_exists("ModifyTime",$param) and $param["ModifyTime"] !== null) {
+            $this->ModifyTime = $param["ModifyTime"];
         }
     }
 }

@@ -26,8 +26,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setUuid(string $Uuid) 设置云镜ID
  * @method string getQuuid() 获取主机ID
  * @method void setQuuid(string $Quuid) 设置主机ID
- * @method string getHostip() 获取主机内网IP
- * @method void setHostip(string $Hostip) 设置主机内网IP
+ * @method string getHostIp() 获取主机内网IP
+ * @method void setHostIp(string $HostIp) 设置主机内网IP
  * @method string getProcessName() 获取进程名
  * @method void setProcessName(string $ProcessName) 设置进程名
  * @method string getFullPath() 获取进程路径
@@ -48,24 +48,32 @@ use TencentCloud\Common\AbstractModel;
  * @method void setParentProcGroup(string $ParentProcGroup) 设置父进程用户组
  * @method string getParentProcPath() 获取父进程路径
  * @method void setParentProcPath(string $ParentProcPath) 设置父进程路径
- * @method string getProcTree() 获取进程树
- * @method void setProcTree(string $ProcTree) 设置进程树
+ * @method string getPsTree() 获取进程树 json  pid:进程id，exe:文件路径 ，account:进程所属用组和用户 ,cmdline:执行命令，ssh_service: SSH服务ip, ssh_soure:登录源
+ * @method void setPsTree(string $PsTree) 设置进程树 json  pid:进程id，exe:文件路径 ，account:进程所属用组和用户 ,cmdline:执行命令，ssh_service: SSH服务ip, ssh_soure:登录源
  * @method integer getStatus() 获取处理状态：0-待处理 2-白名单 3-已处理 4-已忽略
  * @method void setStatus(integer $Status) 设置处理状态：0-待处理 2-白名单 3-已处理 4-已忽略
  * @method string getCreateTime() 获取发生时间
  * @method void setCreateTime(string $CreateTime) 设置发生时间
  * @method string getMachineName() 获取机器名
  * @method void setMachineName(string $MachineName) 设置机器名
- * @method MachineExtraInfo getMachineExtraInfo() 获取附加信息
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setMachineExtraInfo(MachineExtraInfo $MachineExtraInfo) 设置附加信息
-注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getPid() 获取进程id
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setPid(integer $Pid) 设置进程id
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getSuggestScheme() 获取建议方案
+ * @method void setSuggestScheme(string $SuggestScheme) 设置建议方案
+ * @method string getHarmDescribe() 获取危害描述信息
+ * @method void setHarmDescribe(string $HarmDescribe) 设置危害描述信息
+ * @method array getTags() 获取标签
+ * @method void setTags(array $Tags) 设置标签
+ * @method array getReferences() 获取参考链接
+ * @method void setReferences(array $References) 设置参考链接
+ * @method string getMachineWanIp() 获取主机外网ip
+ * @method void setMachineWanIp(string $MachineWanIp) 设置主机外网ip
+ * @method string getNewCaps() 获取权限列表|隔开
+ * @method void setNewCaps(string $NewCaps) 设置权限列表|隔开
+ * @method string getMachineStatus() 获取主机在线状态 OFFLINE  ONLINE
+ * @method void setMachineStatus(string $MachineStatus) 设置主机在线状态 OFFLINE  ONLINE
+ * @method string getModifyTime() 获取处理时间
+ * @method void setModifyTime(string $ModifyTime) 设置处理时间
  */
-class PrivilegeEscalationProcess extends AbstractModel
+class PrivilegeEventInfo extends AbstractModel
 {
     /**
      * @var integer 数据ID
@@ -85,7 +93,7 @@ class PrivilegeEscalationProcess extends AbstractModel
     /**
      * @var string 主机内网IP
      */
-    public $Hostip;
+    public $HostIp;
 
     /**
      * @var string 进程名
@@ -138,9 +146,9 @@ class PrivilegeEscalationProcess extends AbstractModel
     public $ParentProcPath;
 
     /**
-     * @var string 进程树
+     * @var string 进程树 json  pid:进程id，exe:文件路径 ，account:进程所属用组和用户 ,cmdline:执行命令，ssh_service: SSH服务ip, ssh_soure:登录源
      */
-    public $ProcTree;
+    public $PsTree;
 
     /**
      * @var integer 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略
@@ -158,22 +166,50 @@ class PrivilegeEscalationProcess extends AbstractModel
     public $MachineName;
 
     /**
-     * @var MachineExtraInfo 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 建议方案
      */
-    public $MachineExtraInfo;
+    public $SuggestScheme;
 
     /**
-     * @var integer 进程id
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 危害描述信息
      */
-    public $Pid;
+    public $HarmDescribe;
+
+    /**
+     * @var array 标签
+     */
+    public $Tags;
+
+    /**
+     * @var array 参考链接
+     */
+    public $References;
+
+    /**
+     * @var string 主机外网ip
+     */
+    public $MachineWanIp;
+
+    /**
+     * @var string 权限列表|隔开
+     */
+    public $NewCaps;
+
+    /**
+     * @var string 主机在线状态 OFFLINE  ONLINE
+     */
+    public $MachineStatus;
+
+    /**
+     * @var string 处理时间
+     */
+    public $ModifyTime;
 
     /**
      * @param integer $Id 数据ID
      * @param string $Uuid 云镜ID
      * @param string $Quuid 主机ID
-     * @param string $Hostip 主机内网IP
+     * @param string $HostIp 主机内网IP
      * @param string $ProcessName 进程名
      * @param string $FullPath 进程路径
      * @param string $CmdLine 执行命令
@@ -184,14 +220,18 @@ class PrivilegeEscalationProcess extends AbstractModel
      * @param string $ParentProcUser 父进程用户名
      * @param string $ParentProcGroup 父进程用户组
      * @param string $ParentProcPath 父进程路径
-     * @param string $ProcTree 进程树
+     * @param string $PsTree 进程树 json  pid:进程id，exe:文件路径 ，account:进程所属用组和用户 ,cmdline:执行命令，ssh_service: SSH服务ip, ssh_soure:登录源
      * @param integer $Status 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略
      * @param string $CreateTime 发生时间
      * @param string $MachineName 机器名
-     * @param MachineExtraInfo $MachineExtraInfo 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $Pid 进程id
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $SuggestScheme 建议方案
+     * @param string $HarmDescribe 危害描述信息
+     * @param array $Tags 标签
+     * @param array $References 参考链接
+     * @param string $MachineWanIp 主机外网ip
+     * @param string $NewCaps 权限列表|隔开
+     * @param string $MachineStatus 主机在线状态 OFFLINE  ONLINE
+     * @param string $ModifyTime 处理时间
      */
     function __construct()
     {
@@ -218,8 +258,8 @@ class PrivilegeEscalationProcess extends AbstractModel
             $this->Quuid = $param["Quuid"];
         }
 
-        if (array_key_exists("Hostip",$param) and $param["Hostip"] !== null) {
-            $this->Hostip = $param["Hostip"];
+        if (array_key_exists("HostIp",$param) and $param["HostIp"] !== null) {
+            $this->HostIp = $param["HostIp"];
         }
 
         if (array_key_exists("ProcessName",$param) and $param["ProcessName"] !== null) {
@@ -262,8 +302,8 @@ class PrivilegeEscalationProcess extends AbstractModel
             $this->ParentProcPath = $param["ParentProcPath"];
         }
 
-        if (array_key_exists("ProcTree",$param) and $param["ProcTree"] !== null) {
-            $this->ProcTree = $param["ProcTree"];
+        if (array_key_exists("PsTree",$param) and $param["PsTree"] !== null) {
+            $this->PsTree = $param["PsTree"];
         }
 
         if (array_key_exists("Status",$param) and $param["Status"] !== null) {
@@ -278,13 +318,36 @@ class PrivilegeEscalationProcess extends AbstractModel
             $this->MachineName = $param["MachineName"];
         }
 
-        if (array_key_exists("MachineExtraInfo",$param) and $param["MachineExtraInfo"] !== null) {
-            $this->MachineExtraInfo = new MachineExtraInfo();
-            $this->MachineExtraInfo->deserialize($param["MachineExtraInfo"]);
+        if (array_key_exists("SuggestScheme",$param) and $param["SuggestScheme"] !== null) {
+            $this->SuggestScheme = $param["SuggestScheme"];
         }
 
-        if (array_key_exists("Pid",$param) and $param["Pid"] !== null) {
-            $this->Pid = $param["Pid"];
+        if (array_key_exists("HarmDescribe",$param) and $param["HarmDescribe"] !== null) {
+            $this->HarmDescribe = $param["HarmDescribe"];
+        }
+
+        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
+            $this->Tags = $param["Tags"];
+        }
+
+        if (array_key_exists("References",$param) and $param["References"] !== null) {
+            $this->References = $param["References"];
+        }
+
+        if (array_key_exists("MachineWanIp",$param) and $param["MachineWanIp"] !== null) {
+            $this->MachineWanIp = $param["MachineWanIp"];
+        }
+
+        if (array_key_exists("NewCaps",$param) and $param["NewCaps"] !== null) {
+            $this->NewCaps = $param["NewCaps"];
+        }
+
+        if (array_key_exists("MachineStatus",$param) and $param["MachineStatus"] !== null) {
+            $this->MachineStatus = $param["MachineStatus"];
+        }
+
+        if (array_key_exists("ModifyTime",$param) and $param["ModifyTime"] !== null) {
+            $this->ModifyTime = $param["ModifyTime"];
         }
     }
 }
