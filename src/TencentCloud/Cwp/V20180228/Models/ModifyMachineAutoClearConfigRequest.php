@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * ModifyMachineAutoClearConfig请求参数结构体
  *
- * @method integer getClearRule() 获取清理规则时间, 0 表示关闭, 单位为天, 最大为 30天
- * @method void setClearRule(integer $ClearRule) 设置清理规则时间, 0 表示关闭, 单位为天, 最大为 30天
+ * @method integer getClearRule() 获取<p>清理规则时间, 0 表示关闭, 单位为天, 最大为 30天</p>
+ * @method void setClearRule(integer $ClearRule) 设置<p>清理规则时间, 0 表示关闭, 单位为天, 最大为 30天</p>
  */
 class ModifyMachineAutoClearConfigRequest extends AbstractModel
 {
     /**
-     * @var integer 清理规则时间, 0 表示关闭, 单位为天, 最大为 30天
+     * @var integer <p>清理规则时间, 0 表示关闭, 单位为天, 最大为 30天</p>
      */
     public $ClearRule;
 
     /**
-     * @param integer $ClearRule 清理规则时间, 0 表示关闭, 单位为天, 最大为 30天
+     * @param integer $ClearRule <p>清理规则时间, 0 表示关闭, 单位为天, 最大为 30天</p>
      */
     function __construct()
     {

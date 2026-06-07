@@ -20,15 +20,15 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeMachineOsList返回参数结构体
  *
- * @method array getList() 获取操作系统列表
- * @method void setList(array $List) 设置操作系统列表
+ * @method array getList() 获取<p>操作系统列表</p>
+ * @method void setList(array $List) 设置<p>操作系统列表</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeMachineOsListResponse extends AbstractModel
 {
     /**
-     * @var array 操作系统列表
+     * @var array <p>操作系统列表</p>
      */
     public $List;
 
@@ -38,7 +38,7 @@ class DescribeMachineOsListResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $List 操作系统列表
+     * @param array $List <p>操作系统列表</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
