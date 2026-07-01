@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeProVersionStatus请求参数结构体
  *
- * @method string getUuid() 获取主机安全客户端UUID、填写"all"表示所有主机。
- * @method void setUuid(string $Uuid) 设置主机安全客户端UUID、填写"all"表示所有主机。
+ * @method string getUuid() 获取<p>主机安全客户端UUID、填写&quot;all&quot;表示所有主机。</p>
+ * @method void setUuid(string $Uuid) 设置<p>主机安全客户端UUID、填写&quot;all&quot;表示所有主机。</p>
  */
 class DescribeProVersionStatusRequest extends AbstractModel
 {
     /**
-     * @var string 主机安全客户端UUID、填写"all"表示所有主机。
+     * @var string <p>主机安全客户端UUID、填写&quot;all&quot;表示所有主机。</p>
      */
     public $Uuid;
 
     /**
-     * @param string $Uuid 主机安全客户端UUID、填写"all"表示所有主机。
+     * @param string $Uuid <p>主机安全客户端UUID、填写&quot;all&quot;表示所有主机。</p>
      */
     function __construct()
     {
